@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/textViewApplicationName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Quit Smoking"
+        android:textColor="@color/colorTextWhite"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewUntilNextText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="80dp"
+        android:text="Until the next smoking"
+        android:textAlignment="viewStart"
+        android:textColor="@color/colorTextWhite"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/textViewTimeLeft"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewApplicationName" />
+
+    <TextView
+        android:id="@+id/textViewTimeLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:text="1m 34s"
+        android:textAlignment="center"
+        android:textColor="@color/colorTextWhite"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textViewUntilNextText" />
+
+    <TextView
+        android:id="@+id/textViewCooldownText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Current smoke cooldown"
+        android:textColor="@color/colorTextWhite"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewUntilNextText"
+        app:layout_constraintStart_toStartOf="@+id/textViewUntilNextText"
+        app:layout_constraintTop_toBottomOf="@+id/textViewUntilNextText" />
+
+    <TextView
+        android:id="@+id/textViewCooldown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="30 min"
+        android:textColor="@color/colorTextWhite"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewTimeLeft"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTimeLeft" />
+
+    <TextView
+        android:id="@+id/textViewUpdatedCooldownText2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Next smoke cooldown"
+        android:textColor="@color/colorTextWhite"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewUntilNextText"
+        app:layout_constraintStart_toStartOf="@+id/textViewCooldownText"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCooldownText" />
+
+    <TextView
+        android:id="@+id/textViewCooldownUpdated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="none"
+        android:textColor="@color/colorTextWhite"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewCooldown"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCooldown" />
+
+    <TextView
+        android:id="@+id/textViewSiggaretsInDayText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Siggarets smoked a day before"
+        android:textColor="@color/colorTextWhite"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/textViewTimeLeft"
+        app:layout_constraintStart_toStartOf="@+id/textViewUntilNextText"
+        app:layout_constraintTop_toBottomOf="@+id/textViewUpdatedCooldownText2" />
+
+    <TextView
+        android:id="@+id/textViewDailyCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="none"
+        android:textColor="@color/colorTextWhite"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewCooldownUpdated"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCooldownUpdated" />
+
+    <TextView
+        android:id="@+id/textViewSiggaretsInDayUpdatedText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Siggarets smoked a day now"
+        android:textColor="@color/colorTextWhite"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/textViewTimeLeft"
+        app:layout_constraintStart_toStartOf="@+id/textViewUntilNextText"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSiggaretsInDayText" />
+
+    <TextView
+        android:id="@+id/textViewDailyCounterUpdated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="none"
+        android:textColor="@color/colorTextWhite"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewDailyCounter"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDailyCounter" />
+
+    <TextView
+        android:id="@+id/textViewSiggaretsSmokedText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Siggarets smoked total"
+        android:textColor="@color/colorTextWhite"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/textViewTimeLeft"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewUntilNextText"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSiggaretsInDayUpdatedText" />
+
+    <TextView
+        android:id="@+id/textViewSmokedTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="0"
+        android:textColor="@color/colorTextWhite"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewDailyCounterUpdated"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDailyCounterUpdated" />
+
+    <Button
+        android:id="@+id/buttonSmoked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorTextWhite"
+        android:text="Smoked"
+        android:textColor="@color/colorTextDark"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSetSettings" />
+
+    <Button
+        android:id="@+id/buttonSetSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:background="@color/colorTextWhite"
+        android:padding="5dp"
+        android:text="Set settings"
+        android:textColor="@color/colorTextDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSiggaretsSmokedText" />
+</android.support.constraint.ConstraintLayout>

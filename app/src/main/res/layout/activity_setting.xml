@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".SettingActivity">
+
+    <TextView
+        android:id="@+id/textViewApplicationName2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Settings"
+        android:textColor="@color/colorTextWhite"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonSetSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="100dp"
+        android:background="@color/colorTextWhite"
+        android:padding="5dp"
+        android:text="Set"
+        android:textColor="@color/colorTextDark"
+        app:layout_constraintEnd_toEndOf="@+id/textViewUntilOftenText"
+        app:layout_constraintStart_toStartOf="@+id/textViewUntilOftenText"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSmokeOften" />
+
+    <TextView
+        android:id="@+id/textViewUntilOftenText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="How often do you smoke?"
+        android:textAlignment="center"
+        android:textColor="@color/colorTextWhite"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewApplicationName2" />
+
+    <EditText
+        android:id="@+id/editTextSmokeOften"
+        android:layout_width="80dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="#00fbfbfb"
+        android:ems="10"
+        android:inputType="number"
+        android:text="5"
+        android:textAlignment="center"
+        android:textColor="@color/colorTextWhite"
+        app:layout_constraintEnd_toStartOf="@+id/spinner"
+        app:layout_constraintStart_toStartOf="@+id/textViewUntilOftenText"
+        app:layout_constraintTop_toBottomOf="@+id/textViewUntilOftenText" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        style="@style/Widget.AppCompat.Spinner.Underlined"
+        android:layout_width="63dp"
+        android:layout_height="39dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginTop="2dp"
+        android:background="@color/colorTextWhite"
+        app:layout_constraintEnd_toEndOf="@+id/textViewUntilOftenText"
+        app:layout_constraintStart_toEndOf="@+id/editTextSmokeOften"
+        app:layout_constraintTop_toTopOf="@+id/editTextSmokeOften" />
+
+</android.support.constraint.ConstraintLayout>
