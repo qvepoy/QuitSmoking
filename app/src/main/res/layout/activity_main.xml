@@ -162,22 +162,23 @@
         app:layout_constraintEnd_toEndOf="@+id/textViewDailyCounterUpdated"
         app:layout_constraintTop_toBottomOf="@+id/textViewDailyCounterUpdated" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonSmoked"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="18dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/colorTextWhite"
+        android:background="@drawable/round_button"
+
+        android:paddingBottom="10dp"
+        android:src="@mipmap/baseline_smoking_rooms_black_48"
         android:text="Smoked"
         android:textColor="@color/colorTextDark"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonSetSettings" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/buttonSetSettings"
@@ -193,4 +194,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewSiggaretsSmokedText" />
+
 </android.support.constraint.ConstraintLayout>

@@ -15,9 +15,6 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
-import java.sql.Time;
-import java.util.Random;
-
 
 public class TimerService extends Service {
 
@@ -36,7 +33,11 @@ public class TimerService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
 
         LoadSettings();
-        LaunchTimer(smokingPeriodSec + (int)(siggaretsCounter * smokingPeriodSec * 0.01));
+        if (intent.getAction() == "START_ON_BOOT") {
+            LaunchTimer(timeLeft);
+        } else {
+            LaunchTimer(smokingPeriodSec + (int)(siggaretsCounter * smokingPeriodSec * 0.01));
+        }
 
         return super.onStartCommand(intent, flags, startId);
     }
@@ -46,6 +47,7 @@ public class TimerService extends Service {
 
         if (timer != null)
             timer.cancel();
+
         timer = new CountDownTimer(sec * 1000 + 100, 1000) {
 
             public void onTick(long millisUntilFinished) {
@@ -75,7 +77,7 @@ public class TimerService extends Service {
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(this)
                         .setContentIntent(pIntentMainActivity)
-                        .setSmallIcon(R.mipmap.ic_launcher)
+                        .setSmallIcon(R.mipmap.baseline_smoke_free_black_48)
                         .setContentTitle("Time left for next smoking: ")
                         .setContentText(ConvertSecToString(smokingPeriodSec));
         if (addButton) {
@@ -85,6 +87,7 @@ public class TimerService extends Service {
 
             builder.addAction(R.mipmap.ic_launcher, "Smoking", pIntent);
             builder.setContentText(ConvertSecToString(0));
+            builder.setSmallIcon(R.mipmap.baseline_smoking_rooms_black_48);
         }
 
         notification = builder.build();
@@ -118,8 +121,9 @@ public class TimerService extends Service {
     public void onDestroy() {
         if (timer != null)
             timer.cancel();
+
         NotificationManager notificationManager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.cancelAll();
+        notificationManager.cancel(1);
         super.onDestroy();
     }
 

@@ -9,7 +9,10 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 
@@ -30,12 +33,13 @@ public class MainActivity extends Activity {
             textViewDailyCounterUpdated,
             textViewSmokedTotal;
 
-    Button buttonSettings,
-            buttonSmoked;
+    Button buttonSettings;
+
+    ImageButton buttonSmoked;
 
     Boolean timerOn;
 
-    final int REQUEST_CODE_1 = 1;
+    final int SETTINGS_ACTIVITY_REQUEST = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +65,6 @@ public class MainActivity extends Activity {
         textViewCooldown.setText(ConvertSecToString(smokingPeriodSec));
         textViewCooldownUpdated.setText(ConvertSecToString(smokingPeriodSec));
         textViewSmokedTotal.setText(siggaretsCounter.toString());
-        buttonSmoked.setText("Smoke");
 
         if (!smokingPeriod.equals(0)) {
             buttonSmoked.setVisibility(View.VISIBLE);
@@ -75,7 +78,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, SettingActivity.class);
-                startActivityForResult(i, REQUEST_CODE_1);
+                startActivityForResult(i, SETTINGS_ACTIVITY_REQUEST);
 
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
@@ -87,7 +90,10 @@ public class MainActivity extends Activity {
                 sendMessageToService("Start");
             }
         });
+
+
     }
+
 
     private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
         @Override
@@ -108,7 +114,11 @@ public class MainActivity extends Activity {
                 textViewDailyCounterUpdated.setText(String.valueOf(dailyCountNext));
                 textViewSmokedTotal.setText(siggaretsCounter.toString());
 
-                buttonSmoked.setText(timeLeft > 0 ? "Wait" : "Smoked");
+                if (timeLeft > 0)
+                    buttonSmoked.setImageResource(R.mipmap.baseline_smoke_free_black_48);
+                else
+                    buttonSmoked.setImageResource(R.mipmap.baseline_smoking_rooms_black_48);
+
             }
         }
     };
@@ -119,12 +129,14 @@ public class MainActivity extends Activity {
         startService(intent);
     }
 
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         switch (requestCode) {
-            case REQUEST_CODE_1:
+            case SETTINGS_ACTIVITY_REQUEST:
                 if (resultCode == RESULT_OK) {
                     String messageReturn[] = data.getStringArrayExtra("message_return");
 
@@ -140,7 +152,7 @@ public class MainActivity extends Activity {
                     textViewCooldown.setText(ConvertSecToString(ConvertPeriodToInt(smokingPeriod,smokingPeriodType)));
                     textViewCooldownUpdated.setText(textViewCooldown.getText());
                     textViewSmokedTotal.setText(siggaretsCounter.toString());
-                    buttonSmoked.setText("Smoke");
+                    buttonSmoked.setImageResource(R.mipmap.baseline_smoking_rooms_black_48);
 
                     if (!smokingPeriod.equals(0)) {
                         buttonSmoked.setVisibility(View.VISIBLE);
