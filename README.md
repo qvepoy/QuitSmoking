@@ -1,5 +1,5 @@
 # Quit Smoking
-Application for Android, maybe can help to quit smoking smooth. Not for me.
+Application for Android, maybe can help to quit smoking smooth. Gradually increases the gap between cigarettes. Not help for me.
 
 # Screenshots:
 <img src="/repository_files/image1.png" height="400px"/><img src="/repository_files/image2.png" height="400px"/><img src="/repository_files/image3.png" height="400px"/><img src="/repository_files/image4.png" height="400px"/>
