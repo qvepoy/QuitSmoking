@@ -1,4 +1,5 @@
-# Quit Smoking
+# Quit Smoking [![Downloads](https://img.shields.io/github/downloads/qvepoy/QuitSmoking/total.svg?label=Downloads&maxAge=60)](https://github.com/qvepoy/QuitSmoking/releases/latest)
+
 Application for Android, maybe can help to quit smoking smooth. Gradually increases the gap between cigarettes. Not help for me.
 
 # Screenshots:
